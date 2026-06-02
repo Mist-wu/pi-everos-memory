@@ -122,8 +122,8 @@ npm run verify     # typecheck + 测试
 | --- | --- |
 | [`docs/everos.md`](docs/everos.md) | EverOS 记忆层设计、工具说明、配置与接入 |
 | [`docs/RELEASING.md`](docs/RELEASING.md) | npm 与 GitHub Release 发版流程 |
+| [`CHANGELOG.md`](CHANGELOG.md) | 版本变更记录 |
 | [`AGENTS.md`](AGENTS.md) | 模块地图与约定 |
-| [`TODO.md`](TODO.md) | 路线图与设计原则 |
 
 ## 🧭 设计原则
 
