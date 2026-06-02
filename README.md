@@ -20,8 +20,8 @@
 ---
 
 一个**纯 TypeScript** 的 pi 扩展包：通过 `fetch` 直连 [EverOS](https://everos.evermind.ai) REST API，
-向 agent 注册 **9 个模型可调用工具**，无 Python、无额外运行时。以「我与 pi agent 的对话」为入口，
-让 agent 越来越了解我（`user_id = wu`），胜任研究员、助教、程序员助手、秘书、编辑、复盘教练等角色。
+向 agent 注册 **9 个模型可调用工具**。以「我与 pi agent 的对话」为入口，
+让 agent 越来越了解我，胜任研究员、助教、程序员助手、秘书、编辑、复盘教练等角色。
 
 ## ✨ 特性
 
