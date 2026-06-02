@@ -2,7 +2,7 @@ import { existsSync, readFileSync, realpathSync } from "node:fs";
 import { dirname, join, parse } from "node:path";
 import { fileURLToPath } from "node:url";
 
-/** Fixed single-user owner id for this personal-os install. */
+/** Fixed single-user owner id for this pi-everos-memory install. */
 export const USER_ID = "wu";
 
 /** Default retrieval method. hybrid = BM25 + vector + RRF rerank. */
@@ -45,7 +45,7 @@ function parseEnvForKey(filePath: string): string | undefined {
 /**
  * Resolve the EverOS API key. Prefers the EVEROS_API_KEY env var, otherwise
  * walks up from this module's real location looking for a .env that defines it
- * (so the key in personal-os/.env is found even when loaded via a global symlink).
+ * (so the key in pi-everos-memory/.env is found even when loaded via a global symlink).
  */
 export function loadApiKey(): string | undefined {
   const fromEnv = process.env.EVEROS_API_KEY?.trim();

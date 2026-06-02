@@ -1,4 +1,4 @@
-# EverOS — personal-os 的记忆层
+# EverOS — pi-everos-memory 的记忆层
 
 EverOS 是给 AI agent 用的「记忆操作系统」：把对话自动抽取成结构化记忆（MemCell → MemScene），
 自动消解矛盾、维护用户画像，并在需要时按意图重建上下文。
@@ -6,7 +6,7 @@ EverOS 是给 AI agent 用的「记忆操作系统」：把对话自动抽取成
 完整 API 参考：https://docs.evermind.ai/llms-full.txt （动手前先读）
 控制台 / API Key：https://everos.evermind.ai
 
-## 在 personal-os 中的定位
+## 在 pi-everos-memory 中的定位
 
 - **入口是「我与 pi agent 的对话」**：不再依赖 `inbox.md`，通过持续对话让 agent 越来越了解我。
 - **EverOS 直接作为存储**：长期记忆与用户画像落在 EverOS，而不是 Markdown 知识库。

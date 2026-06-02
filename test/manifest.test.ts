@@ -16,7 +16,7 @@ test("package manifest declares the pi extension entry", () => {
   assert.ok(pkg.pi?.extensions?.includes("./src/index.ts"));
 });
 
-test("fixed config defaults for personal-os", () => {
+test("fixed config defaults for pi-everos-memory", () => {
   assert.equal(USER_ID, "wu");
   assert.equal(DEFAULT_METHOD, "hybrid");
 });

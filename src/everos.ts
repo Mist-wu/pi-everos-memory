@@ -14,7 +14,7 @@ async function callApi(path: string, body: unknown, signal?: AbortSignal): Promi
   const apiKey = loadApiKey();
   if (!apiKey) {
     throw new EverOSError(
-      "EVEROS_API_KEY not found. Set it in the environment or in personal-os/.env.",
+      "EVEROS_API_KEY not found. Set it in the environment or in pi-everos-memory/.env.",
     );
   }
 

@@ -1,4 +1,4 @@
-# Personal OS
+# pi-everos-memory
 
 以「我与 pi agent 的对话」为入口，用 EverOS 做记忆层，让 agent 在持续对话中越来越了解我。
 
