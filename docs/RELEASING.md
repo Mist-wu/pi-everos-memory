@@ -2,6 +2,8 @@
 
 ## 首次发布 npm（一次性）
 
+GitHub Release [v0.1.0](https://github.com/Mist-wu/pi-everos-memory/releases/tag/v0.1.0) 已创建；**npm 仍需本机或 CI 完成一次 publish**。
+
 1. 在 [npmjs.com](https://www.npmjs.com) 注册并登录本机：
 
    ```bash
@@ -10,12 +12,14 @@
 
 2. 确认包名未被占用：`npm view pi-everos-memory` 应 404。
 
-3. 本地发版（与 `package.json` 版本一致）：
+3. 在仓库根目录发布当前版本（须与 tag / `package.json` 一致，现为 `0.1.0`）：
 
    ```bash
    npm run verify
    npm publish --access public
    ```
+
+4. （可选）为后续 tag 自动发布，在 GitHub 仓库添加 Actions secret `NPM_TOKEN`（npm → Access Tokens → Generate，类型选 **Granular** 或 **Classic**，权限含 publish）。
 
 ## 后续版本
 
