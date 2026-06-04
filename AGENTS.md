@@ -10,7 +10,7 @@ A pi extension package that exposes EverOS long-term memory as model-callable to
   agent memory `agent_skills` / `agent_cases` / `agent_record`.
 - `src/everos.ts` — EverOS REST client over `fetch` (search, get, add+flush, agent add+flush, delete) plus multimodal upload (`/object/sign` + S3 presigned POST via `uploadLocalFiles`).
 - `src/config.ts` — constants (`USER_ID=wu`, method, base URL) and `loadApiKey()` (env or `.env` walk-up).
-- `src/prompts.ts` — `TOOL_PROMPT_GUIDELINES` shared by all tools.
+- `src/prompts.ts` — `MEMORY_PROMPT_GUIDELINES`: per-tool guideline bullets, attached to each tool individually. pi flattens active tools' guidelines into the system prompt without cross-tool dedup, so a single shared array would repeat ~9x.
 - `test/` — manifest + unit tests (`node --import tsx --test`).
 
 ## Conventions

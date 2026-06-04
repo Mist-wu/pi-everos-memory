@@ -16,7 +16,7 @@ import {
   searchMemories,
   uploadLocalFiles,
 } from "./everos.js";
-import { TOOL_PROMPT_GUIDELINES } from "./prompts.js";
+import { MEMORY_PROMPT_GUIDELINES } from "./prompts.js";
 
 const MAX_OUTPUT_CHARS = 8000;
 
@@ -130,7 +130,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Memory Search",
     description: "Search the user's long-term memory (EverOS) for relevant past context, preferences, facts, and decisions.",
     promptSnippet: "Recall what you already know about the user before answering when prior context would help.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_search,
     parameters: SearchParams,
     async execute(_id, params, signal) {
       return jsonResult(
@@ -153,7 +153,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     description:
       "Store this turn's salient messages into the user's long-term memory (EverOS). Call only when the turn contains durable, worth-remembering information.",
     promptSnippet: "Persist durable info (preferences, facts, decisions, plans) when a turn is worth remembering.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_add,
     parameters: AddParams,
     async execute(_id, params, signal) {
       const messages: ChatMessage[] = params.messages.map((m) => ({ role: m.role, content: m.content }));
@@ -170,7 +170,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Memory Profile",
     description: "Retrieve the consolidated profile EverOS has built for the user (preferences and traits).",
     promptSnippet: "Get a broad sense of who the user is, e.g. for a review or retrospective.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_profile,
     parameters: EmptyParams,
     async execute(_id, _params, signal) {
       return jsonResult(await getProfile(signal ?? undefined));
@@ -182,7 +182,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Memory Episodes",
     description: "List the user's recent episodes in reverse-chronological order, for review and retrospectives.",
     promptSnippet: "Chronological recall: what happened recently, optionally bounded to the last N days.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_episodes,
     parameters: EpisodesParams,
     async execute(_id, params, signal) {
       return jsonResult(await getEpisodes(params.limit ?? 10, params.days, signal ?? undefined));
@@ -194,7 +194,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Memory Foresight",
     description: "Surface the user's active reminders, deadlines, and time-sensitive commitments (foresight memories valid now).",
     promptSnippet: "Surface active reminders and deadlines.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_foresight,
     parameters: ForesightParams,
     async execute(_id, params, signal) {
       const query = params.query?.trim() || "reminders deadlines appointments commitments";
@@ -208,7 +208,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     description:
       "Permanently forget memories. Single mode: pass memcell_id (the MemCell `parent_id` from a search/episodes result). Batch mode: pass session_id and/or sender_id. Prefer correcting facts via memory_add; use delete only to truly remove information.",
     promptSnippet: "Permanently forget a specific memory (by MemCell parent_id) or a whole session.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.memory_delete,
     parameters: DeleteParams,
     async execute(_id, params, signal) {
       if (!params.memcell_id && !params.session_id && !params.sender_id) {
@@ -231,7 +231,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Agent Skills",
     description: "Recall reusable skills EverOS has distilled from past agent task trajectories.",
     promptSnippet: "Recall learned, generalized skills before tackling a similar task.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.agent_skills,
     parameters: AgentGetParams,
     async execute(_id, params, signal) {
       return jsonResult(await getAgentSkills(params.limit ?? 20, signal ?? undefined));
@@ -243,7 +243,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     label: "Agent Cases",
     description: "Recall specific past agent cases (task intent, approach, quality score) for similar tasks.",
     promptSnippet: "Recall concrete past approaches to similar tasks.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.agent_cases,
     parameters: AgentGetParams,
     async execute(_id, params, signal) {
       return jsonResult(await getAgentCases(params.limit ?? 20, signal ?? undefined));
@@ -256,7 +256,7 @@ export function registerMemoryTools(pi: ExtensionAPI): void {
     description:
       "Record a completed task trajectory so EverOS can distill reusable agent_case / agent_skill. Call only after a task worth learning from.",
     promptSnippet: "After a notable completed task, record a concise faithful trajectory to learn from.",
-    promptGuidelines: TOOL_PROMPT_GUIDELINES,
+    promptGuidelines: MEMORY_PROMPT_GUIDELINES.agent_record,
     parameters: AgentRecordParams,
     async execute(_id, params, signal) {
       const messages: AgentMessage[] = params.messages.map((m) => ({
