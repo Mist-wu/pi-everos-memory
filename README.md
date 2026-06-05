@@ -9,11 +9,11 @@
 <br/>
 
 [![npm](https://img.shields.io/npm/v/pi-everos-memory?style=flat-square&logo=npm)](https://www.npmjs.com/package/pi-everos-memory)
-![pi](https://img.shields.io/badge/pi-extension-2563eb)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
-![EverOS](https://img.shields.io/badge/memory-EverOS-7c3aed)
-![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.19-339933?logo=node.js&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-22c55e)
+[![pi](https://img.shields.io/badge/pi-extension-2563eb)](https://pi.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![EverOS](https://img.shields.io/badge/memory-EverOS-7c3aed)](https://everos.evermind.ai)
+[![Node](https://img.shields.io/badge/node-%E2%89%A5%2022.19-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/license-MIT-22c55e)](https://opensource.org/license/mit)
 
 </div>
 
